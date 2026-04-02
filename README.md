@@ -1,4 +1,4 @@
-# Nighty UI Scripting Framework Reference v1.0
+# Nighty UI Scripting Framework Reference v1.1
 
 **Created by:** thatdudepyro using https://claude.ai
 
@@ -94,7 +94,7 @@ tab = Tab(
 
 # Methods
 container = tab.create_container(type="columns", **kwargs)
-tab.toast(title="Alert", description="Message", type="INFO")  # "INFO"|"ERROR"|"SUCCESS"
+tab.toast(title="Alert", description="Message", type="INFO")  # All three params required. type: "INFO"|"ERROR"|"SUCCESS"
 tab.render()  # REQUIRED - call after all elements are defined
 ```
 
@@ -107,7 +107,7 @@ tab.render()  # REQUIRED - call after all elements are defined
 **Methods**:
 - `create_container(type, **kwargs)`: Creates CardContainer instances
 - `render()`: Initializes the tab (mandatory final step)
-- `toast(title, description, type)`: Shows notifications
+- `toast(title, description, type)`: Shows notifications. All three parameters are required.
 
 #### 3.1.1 Available Icons (39 Total)
 
@@ -220,7 +220,7 @@ Interactive button component with event handling and visual variants.
 button = parent.create_ui_element(UI.Button,
     label="Click Me",                   # string
     variant="solid",                    # "solid"|"bordered"|"ghost"|"light"|"flat"|"cta"
-    color="primary",                    # "primary"|"default"|"success"|"danger"
+    color="primary",                    # "primary"|"default"|"success"|"danger" (ignored if variant="cta")
     size="md",                          # "sm"|"md"
     full_width=False,                   # True|False
     disabled=False,                     # True|False
